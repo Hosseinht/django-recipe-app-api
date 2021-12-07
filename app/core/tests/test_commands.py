@@ -6,7 +6,7 @@ from django.test import TestCase
 """
     helper command: it will ensure that the database is up and ready
     to accept connections before we try and access database
-    patch: mock the behavior of the Django get database function. 
+    patch: mock the behavior of the Django get database function.
     simulate database is being available and not being available
     call_command: call the command in our source code
     OperationalError: Django throws when database is unavailable.

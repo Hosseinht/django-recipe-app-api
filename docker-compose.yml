@@ -17,14 +17,19 @@ services:
       - DB_HOST=db
       - DB_NAME=app
       - DB_USER=postgres
-      - DB_PASS=p.123456
+      - DB_PASS=postgres
     depends_on:
       - db
 
   db:
     container_name: recipe_db
     image: postgres:13.5-alpine
+    restart: always
     environment:
       - POSTGRES_DB=app
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=p.123456
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
